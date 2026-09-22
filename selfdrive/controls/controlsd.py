@@ -99,6 +99,10 @@ class Controls:
     self.car_state_sock = messaging.sub_sock('carState', timeout=20)
 
     ignore = self.sensor_packets + ['testJoystick']
+
+    ignore += ['driverCameraState', 'managerState']
+    ignore += ['driverMonitoringState']
+    
     if SIMULATION:
       ignore += ['driverCameraState', 'managerState']
     if REPLAY:
